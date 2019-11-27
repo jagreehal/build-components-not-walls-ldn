@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html class="w-full h-full" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Build components not walls LDN - @jagreehal</title>
+
+    <meta name="description" content="fact-check web slides - @jagreehal" />
+    <meta name="author" content="Jag Reehal" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="css/reveal.css" />    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="lib/css/code.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased font-body text-gray-300 relative h-full">
+    <a
+      href="https://twitter.com/jagreehal"
+      class="text-blue-500 text-base absolute z-10 bottom-0 left-0 m-3"
+      >@JagReehal</a
+    >
+    <div class="reveal">
+      <div class="slides">
+        <section
+          class="flex flex-col justify-center items-center"
+          data-background="images/viktor-forgacs-eNzH7lx4eS4-unsplash.jpg"
+        >
+          <h1 class="mb-16 text-center">
+            Build components
+              <span class="text-red-600">NOT</span> walls
+          </h1>
+          <div>
+            <a
+              href="https://twitter.com/jagreehal"
+              class="text-5xl text-center text-blue-600"
+              >Jagvinder Singh Reehal</a
+            >
+          </div>
+        </section>
+
+        <section class="bg-red-600">
+          <h2>
+            About me
+          </h2>
+          <ul>
+            <li class="fragment">
+              I'm a contractor 
+            </li>            
+            <li class="fragment">
+              If the money is good I'll do whatever the client wants 
+            </li>
+            <li class="fragment">
+              Get to work a lots of different places, with different problems, using different things 
+            </li>
+            <li class="fragment">
+              I'm currently leading a Vue & GraphQL project
+            </li>
+            <li class="fragment">
+              React (with TypeScript) my preferred library for building apps 
+            </li>
+            <li class="fragment">
+              Trying not of offend/call out anyone. I'm still learning ✌️
+            </li>
+          </ul>
+        </section>
+        <section class="bg-orange-600">
+          <h2 class="">A UI component should be?</h2>
+          <div class="flex justify-center">
+            <ul class="w-5/12 mr-24">
+              <li class="fragment">small</li>
+              <li class="fragment">reusable</li>
+              <li class="fragment">testable</li>
+              <li class="fragment">documented</li>
+              <li class="fragment">manage internal state</li>
+            </ul>
+            <ul class="w-5/12 mr-24">
+              <li class="fragment">re-render when "props" change</li>
+              <li class="fragment">accessible</li>
+              <li class="fragment">work everywhere</li>
+              <li class="fragment">styleable</li>
+              <li class="fragment">have a single responsibility</li>
+            </ul>
+          </div>
+        </section>
+        <section class="bg-yellow-600">
+          <h2>A UI component should also...</h2>
+          <ul>
+            <li class="fragment">have few or no dependencies?</li>
+            <li class="fragment">NOT have a single entry point</li>
+            <li class="fragment">
+              look and behave the same across browsers?
+            </li>
+            <li class="fragment">
+              work regardless of what else is on the page?
+            </li>
+            <li class="fragment">
+              be lazy loadable?
+            </li>
+            <li class="fragment">
+              be as easy to use as an HTML element?
+            </li>
+            <li class="fragment">
+              be able to be used by non-techies 🤓 without JS knowledge?
+            </li>
+          </ul>
+        </section>
+        <section class="bg-green-600">
+          <h2>Let's build a component</h2>
+          <ul>
+            <li>
+              We're a
+              <svg
+                class="w-20 inline"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                id="Layer_2_1_"
+                x="0px"
+                y="0px"
+                viewBox="0 0 841.9 595.3"
+                enable-background="new 0 0 841.9 595.3"
+                xml:space="preserve"
+              >
+                <g>
+                  <path
+                    fill="#61DAFB"
+                    d="M666.3,296.5c0-32.5-40.7-63.3-103.1-82.4c14.4-63.6,8-114.2-20.2-130.4c-6.5-3.8-14.1-5.6-22.4-5.6v22.3   c4.6,0,8.3,0.9,11.4,2.6c13.6,7.8,19.5,37.5,14.9,75.7c-1.1,9.4-2.9,19.3-5.1,29.4c-19.6-4.8-41-8.5-63.5-10.9   c-13.5-18.5-27.5-35.3-41.6-50c32.6-30.3,63.2-46.9,84-46.9l0-22.3c0,0,0,0,0,0c-27.5,0-63.5,19.6-99.9,53.6   c-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7,0,51.4,16.5,84,46.6c-14,14.7-28,31.4-41.3,49.9c-22.6,2.4-44,6.1-63.6,11   c-2.3-10-4-19.7-5.2-29c-4.7-38.2,1.1-67.9,14.6-75.8c3-1.8,6.9-2.6,11.5-2.6l0-22.3c0,0,0,0,0,0c-8.4,0-16,1.8-22.6,5.6   c-28.1,16.2-34.4,66.7-19.9,130.1c-62.2,19.2-102.7,49.9-102.7,82.3c0,32.5,40.7,63.3,103.1,82.4c-14.4,63.6-8,114.2,20.2,130.4   c6.5,3.8,14.1,5.6,22.5,5.6c27.5,0,63.5-19.6,99.9-53.6c36.4,33.8,72.4,53.2,99.9,53.2c8.4,0,16-1.8,22.6-5.6   c28.1-16.2,34.4-66.7,19.9-130.1C625.8,359.7,666.3,328.9,666.3,296.5z M536.1,229.8c-3.7,12.9-8.3,26.2-13.5,39.5   c-4.1-8-8.4-16-13.1-24c-4.6-8-9.5-15.8-14.4-23.4C509.3,224,523,226.6,536.1,229.8z M490.3,336.3c-7.8,13.5-15.8,26.3-24.1,38.2   c-14.9,1.3-30,2-45.2,2c-15.1,0-30.2-0.7-45-1.9c-8.3-11.9-16.4-24.6-24.2-38c-7.6-13.1-14.5-26.4-20.8-39.8   c6.2-13.4,13.2-26.8,20.7-39.9c7.8-13.5,15.8-26.3,24.1-38.2c14.9-1.3,30-2,45.2-2c15.1,0,30.2,0.7,45,1.9   c8.3,11.9,16.4,24.6,24.2,38c7.6,13.1,14.5,26.4,20.8,39.8C504.7,309.8,497.8,323.2,490.3,336.3z M522.6,323.3   c5.4,13.4,10,26.8,13.8,39.8c-13.1,3.2-26.9,5.9-41.2,8c4.9-7.7,9.8-15.6,14.4-23.7C514.2,339.4,518.5,331.3,522.6,323.3z    M421.2,430c-9.3-9.6-18.6-20.3-27.8-32c9,0.4,18.2,0.7,27.5,0.7c9.4,0,18.7-0.2,27.8-0.7C439.7,409.7,430.4,420.4,421.2,430z    M346.8,371.1c-14.2-2.1-27.9-4.7-41-7.9c3.7-12.9,8.3-26.2,13.5-39.5c4.1,8,8.4,16,13.1,24C337.1,355.7,341.9,363.5,346.8,371.1z    M420.7,163c9.3,9.6,18.6,20.3,27.8,32c-9-0.4-18.2-0.7-27.5-0.7c-9.4,0-18.7,0.2-27.8,0.7C402.2,183.3,411.5,172.6,420.7,163z    M346.7,221.9c-4.9,7.7-9.8,15.6-14.4,23.7c-4.6,8-8.9,16-13,24c-5.4-13.4-10-26.8-13.8-39.8C318.6,226.7,332.4,224,346.7,221.9z    M256.2,347.1c-35.4-15.1-58.3-34.9-58.3-50.6c0-15.7,22.9-35.6,58.3-50.6c8.6-3.7,18-7,27.7-10.1c5.7,19.6,13.2,40,22.5,60.9   c-9.2,20.8-16.6,41.1-22.2,60.6C274.3,354.2,264.9,350.8,256.2,347.1z M310,490c-13.6-7.8-19.5-37.5-14.9-75.7   c1.1-9.4,2.9-19.3,5.1-29.4c19.6,4.8,41,8.5,63.5,10.9c13.5,18.5,27.5,35.3,41.6,50c-32.6,30.3-63.2,46.9-84,46.9   C316.8,492.6,313,491.7,310,490z M547.2,413.8c4.7,38.2-1.1,67.9-14.6,75.8c-3,1.8-6.9,2.6-11.5,2.6c-20.7,0-51.4-16.5-84-46.6   c14-14.7,28-31.4,41.3-49.9c22.6-2.4,44-6.1,63.6-11C544.3,394.8,546.1,404.5,547.2,413.8z M585.7,347.1c-8.6,3.7-18,7-27.7,10.1   c-5.7-19.6-13.2-40-22.5-60.9c9.2-20.8,16.6-41.1,22.2-60.6c9.9,3.1,19.3,6.5,28.1,10.2c35.4,15.1,58.3,34.9,58.3,50.6   C644,312.2,621.1,332.1,585.7,347.1z"
+                  />
+                  <polygon
+                    fill="#61DAFB"
+                    points="320.8,78.4 320.8,78.4 320.8,78.4  "
+                  />
+                  <circle fill="#61DAFB" cx="420.9" cy="296.5" r="45.7" />
+                  <polygon
+                    fill="#61DAFB"
+                    points="520.5,78.1 520.5,78.1 520.5,78.1  "
+                  />
+                </g>
+              </svg>
+              React shop
+            </li>
+            <li>
+              Our component uses hooks... but not all of our apps support hooks
+            </li>
+            <li>
+              Do other applications within the organisation use the same
+              library/framework?
+            </li>
+            <li>
+              What if your organisation acquires another organisation?
+            </li>
+            <li>
+              If your organisation publishes components do you maintain and try
+              to keep feature parity with all versions?
+            </li>
+          </ul>
+        </section>
+        <section class="bg-blue-600">
+          <h2>Web component can be made up of</h2>
+          <ul>
+            <li>
+              <a
+                target="blank"
+                href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
+                >Custom elements</a
+              >
+              <pre class="mt-4"><code class="javsacript">// create
+class TodoItem extends HTMLElement {}
+
+// register
+customElements.define("todo-item", TodoItem);
+
+// use
+&#x3C;todo-item&#x3E;&#x3C;/todo-item&#x3E;</code></pre>
+            </li>
+            <li>
+              <a
+                target="blank"
+                href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
+                >HTML templates</a
+              >
+            </li>
+            <li>
+              <a
+                target="blank"
+                href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM"
+                >Shadow DOM</a
+              >
+            </li>
+            <li class="line-through">HTML imports</li>
+            <!-- <li>
+              <a
+                target="blank"
+                href="https://jag-html-examples.netlify.com/styling-examples/web-component.html"
+                >Demo</a
+              >
+            </li> -->
+          </ul>
+        </section>
+        <section class="bg-indigo-600">
+          <h2>What is the Shadow Dom?</h2>
+          <ul>
+            <li class="mb-0">
+              Provides 'iframe like' <b>encapsulation</b>... but is <a target="_blank" href="https://marcysutton.com/accessibility-and-the-shadow-dom">accessible</a target="_blank">,
+              stylable and responsive like a native element!
+              <img src="images/video-element.png" />
+            </li>            
+            <li>
+              Great for sharing -
+              <a
+                target="blank"
+                href="https://medium.com/@makerspirit/how-to-style-your-twitter-widget-styling-on-shadow-dom-a405c36edd10"
+                >Twitter "sharethis tweet"</a
+              >
+            </li>
+            <li>
+              <a
+                target="blank"
+                href="https://medium.com/bbc-design-engineering/goodbye-iframes-6c84a651e137"
+                >BBC 'How I learnt to Stop Worrying and Love the Shadow Dom'</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="bg-purple-600">
+          <h2>Styling Components</h2>
+          <ul>
+            <li>
+              Styling components can be done using
+              <ul>
+                <li>Regular CSS</li>
+                <li>CSS modules</li>
+                <li>CSS-in-JS</li>
+                <li>Shadow DOM</li>
+              </ul>
+            </li>
+            <li>
+              Let's see how they cope with class style 💣 <br />
+              and element style 👻
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Component using CSS</h2>
+
+          <iframe
+            width="100%"
+            height="450"
+            src="//jsfiddle.net/jagreehal/s7m2451j/embedded/result/dark/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          ></iframe>
+        </section>
+        <section>
+          <h2>React component using CSS-in-JS</h2>
+          <iframe
+            width="100%"
+            height="450"
+            src="//jsfiddle.net/jagreehal/1yp47vq5/embedded/result/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          ></iframe>
+          <div class="flex">
+            <pre class="mr-6">
+                    <code class="javascript">
+const View = styled.div`
+  color: #4d4d4d;
+`;
+
+// used like this
+
+&lt;View&gt;
+...
+&lt;/View&gt;
+                    </code>
+                  </pre>
+
+            <pre>
+                    <code class="html">
+.htZyQy {
+  color: #4d4d4d;
+}                      
+
+<div class="sc-bdVaJa htZyQy">
+...
+</div>
+
+
+                    </code>
+                  </pre>
+          </div>
+        </section>
+        <section>
+          <h2>Shadow Dom (NOT AFFECTED)</h2>
+          <iframe
+            width="100%"
+            height="450"
+            src="//jsfiddle.net/jagreehal/cd7eLmv3/embedded/result/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          ></iframe>
+        </section>
+        <section>
+          <h2>Themed Shadow Dom</h2>
+          <iframe
+            width="100%"
+            height="250"
+            src="//jsfiddle.net/jagreehal/fL4zj0yd/1/embedded/result,html/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          ></iframe>
+          <pre>
+            <code class="css">
+:host{
+  background-color: #FFF:
+}                
+:host(.dark) {
+  background-color: #000:
+}             
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h2>CSS Variables Shadow Dom</h2>
+          <iframe
+            width="100%"
+            height="250"
+            src="//jsfiddle.net/jagreehal/oa4cebpr/5/embedded/result,html/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          ></iframe>
+          <pre>
+            <code class="css">
+:root {
+  --todo-item-background-color: orange;
+  --todo-item-color: blue;
+  --todo-destroy-color: black;
+}         
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h2>Use your own (styled) content using a slot</h2>
+          <iframe
+            width="100%"
+            height="250"
+            src="//jsfiddle.net/jagreehal/rceLwxpa/6/embedded/result,html,css/"
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest
+            frameborder="0"
+          ></iframe>
+          <pre>
+            <code class="html">
+
+&#x3C;todo-item&#x3E;
+  &#x3C;slot/&#x3E;  
+&#x3C;/todo-item&#x3E;
+            </code>
+          </pre>
+        </section>
+        <section
+          class="flex flex-col justify-center items-center bg-red-600"
+        >
+          <h1 class="mb-12">Thanks for coming!</h1>
+          <h1 class="text-blue-600">#UseThePlatform</h1>
+          <div class="text-base">if only it was that simple...</div>
+        </section>
+        <section class="bg-orange-600">
+          <h2>🙃 Web component issues 🙃</h2>
+          <blockquote class="text-4xl max-width-sm m-auto p-12 leading-relaxed">
+            "This is my understanding, corrections are welcome"
+          </blockquote>
+        </section>
+        <section class="bg-yellow-600">
+          <h2>Standards</h2>
+          <ul>
+            <li>
+              Should have been done better like <a href="https://webassembly.github.io/spec/">WebAssembly</a>
+            </li>
+            <li>
+              Spec change from v0 to v1 is still confusing as both are still used
+            </li>
+            <li>
+              Lack consensus e.g. Apple refused to implement features
+            </li>            
+          </ul>
+        </section>
+        <section class="bg-green-600">
+          <h2>Google</h2>
+          <ul>
+            <li>
+              Incorrect message/approach/wording?
+            </li>
+            <li>
+              Polymer the 'flagship' for web components was awful
+            </li>            
+            <li>
+              Horrible developer experience (<a
+                href="https://github.com/jagreehal/styling-web-component-examples/blob/master/public/styling-examples/web-component-shadow.js"
+                >example</a
+              >)
+            </li>
+            <li>
+              Works in Chrome. Polyfills/prayers/thoughts for everyone else
+            </li>
+          </ul>
+        </section>
+        <section class="bg-blue-600">
+          <h2>🐘 The Shadow DOM 🐘</h2>
+          <ul>
+            <li>
+              Should NOT have been been part of web components
+            </li>
+            <li>
+              Don't work well in forms... <a href="https://web.dev/more-capable-form-controls/">yet</a>
+            </li>
+            <li>
+              Is <a href="http://marcysutton.github.io/web-components-accessibility-sandbox/">accessible</a> but there are <a href="https://twitter.com/sarahmei/status/1198069119897047041">edge cases</a> you can workaround be need to be aware of
+            </li>
+            <li>
+              Understanding styling nuances e.g. inherited properties
+            </li>
+            <li>
+              A closed mode is evil
+            </li>
+            <li>
+              SSR not possible
+            </li>
+          </ul>
+        </section>
+        <section class="bg-indigo-600">
+          <h2>Community</h2>
+          <ul>
+            <li>
+              Outdated -
+              <a href="https://news.ycombinator.com/item?id=13877289"
+                >The broken promise of Web Components</a
+              >
+            </li>
+            <li>
+              Use edge cases to point out flaws and weaknesses
+            </li>
+            <li>
+              Biased opinions and clever spin -
+              <a
+                href="https://dev.to/richharris/why-i-don-t-use-web-components-2cia"
+                >Why I don't use web components</a
+              >. Did you read <a href="https://gist.github.com/WebReflection/71aed0c811e2e88e3cd3c647213f0e6c">the counter argument?</a>
+            </li>
+            <li>
+              Bad apples on both sides of the argument don't help
+            </li>
+            <li>
+              People who have not used or bothered to learn about web components troll anyway 🕶️
+            </li>
+          </ul>
+        </section>
+        <section class="bg-purple-600">
+          <h2 class="lowercase">
+            &lt;fact-check /&gt; 
+          </h2>
+          <ul>
+            <li>
+              Era of echo chambers
+            </li>
+            <li>
+              It's difficult in web development to keep up with everything
+            </li>
+            <li>
+              Prominent figures are behaving like politicians making non-constructive and/or inaccurate statements
+            </li>
+            <li>
+              Who unlike politicians are a trusted source of information, an authority
+            </li>            
+            <li>
+              Which is a problem because people within the echo chamber aren't correcting each other
+            </li>
+          </ul>
+        </section>
+        <section class="bg-red-600">
+          <h2>But no one uses web components</h2>
+          <div class="flex justify-center">
+            <ul class="w-5/12 mr-24">
+              <li>
+                Arm
+              </li>
+              <li>Salesforce</li>
+              <li>Amazon</li>
+              <li>Bloomberg</li>
+              <li>Porsche</li>
+              <li>EA Sports</li>
+              <li>Tesla</li>
+            </ul>
+            <ul class="w-5/12">
+              <li>Samsung</li>
+              <li>Github</li>
+              <li>McDonalds</li>
+              <li>Coca Cola</li>
+              <li>Microsoft</li>
+              <li>Firefox</li>
+              <li>Apple</li>
+            </ul>
+          </div>
+        </section>
+        <section class="bg-orange-600">
+          <h2>
+            Usage is growing
+          </h2>
+
+          <h2 class="text-gray-800">
+            6% of all pages today use web components
+          </h2>
+          <img src="images/custom-element-usage.png" class="m-auto" />
+          <div class="text-base text-center">
+            Source:
+            <a
+              target="blank"
+              href="https://www.chromestatus.com/metrics/feature/timeline/popularity/1689"
+              >Chrome Status</a
+            >
+          </div>
+        </section>
+        <section class="bg-yellow-600">
+          <h2>
+            Support is excellent
+          </h2>
+          <img
+            class="m-auto"
+            src="images/browser-support.png"
+            alt="browser support"
+          />
+          <div class="text-base text-center">
+            Source:
+            <a target="blank" href="https://www.webcomponents.org/"
+              >Webcomponents.org</a
+            >
+          </div>
+        </section>        
+        <section class="bg-green-600">
+          <h2>You use web components!</h2>
+          <blockquote class="text-4xl max-width-sm m-auto p-12 leading-relaxed">
+            "Both Firefox and Chrome dev tools use web components!"
+          </blockquote>
+        </section>        
+        <section class="bg-blue-600">
+          <h2>
+            Seamless integration with MOST libraries and frameworks...
+          </h2>
+          <ul>
+            <li>
+              <a target="blank" href="https://custom-elements-everywhere.com/"
+                >Custom Elements Everywhere</a
+              >
+              checks how interoperable web components are
+
+              <div class="mb-12"><img src="images/cee-angular.png" /></div>
+              <div><img src="images/cee-vue.png" /></div>
+            </li>
+          </ul>
+        </section>
+        <section class="bg-indigo-600">
+          <h2>...except React</h2>
+          <img class="m-auto mb-12" src="images/cee-react.png" />
+          <ul>
+            <li>
+              <a
+                target="blank"
+                href="https://github.com/reactjs/rfcs/pull/15"
+                >Read the issue</a
+              >
+              about why
+            </li>
+            <li>
+              <a
+                target="blank"
+                href="https://github.com/the-road-to-learn-react/use-custom-element"
+                >use-custom-element</a
+              >
+              hook
+            </li>
+            <li>
+              Don't think they will be going on a date any time soon 💔
+            </li>
+          </ul>
+        </section>
+        <section class="bg-purple-600">
+          <h2>
+            Vanilla web components are & will always be 💩
+          </h2>
+          <blockquote class="text-4xl max-width-sm m-auto p-12 leading-relaxed">
+            "Just in the same way no one uses vanilla JavaScript, no one will
+            ship vanilla web components either"
+            <div class="text-base text-right">Jag Reehal</div>
+          </blockquote>
+        </section>
+        <section class="bg-red-600">
+          <h2>
+            The web platform is and always will be consistently inconsistent
+          </h2>
+          <img
+            class="m-auto"
+            src="https://i.imgflip.com/39sznm.jpg"
+            title="made at imgflip.com"
+          />
+        </section>
+        <section class="bg-orange-600">
+          <h2>Lots of options!</h2>
+          <ul>
+            <li>
+              <a target="blank" href="https://angular.io/guide/elements"
+                >Angular</a
+              >,
+              <a
+                target="blank"
+                href="https://cli.vuejs.org/guide/build-targets.html#web-component"
+                >Vue</a
+              >,
+              <a
+                target="blank"
+                href="https://glimmerjs.com/guides/using-glimmer-as-web-components"
+                >Glimmer</a
+              >
+              and
+              <a
+                target="blank"
+                href="https://svelte.dev/docs#Custom_element_API"
+                >Svelte</a
+              >
+              have built in support to output web components
+            </li>
+            <li>
+              If you don't want a build step you could look at
+              <a target="blank" href="https://lit-element.polymer-project.org/"
+                >lit-element</a
+              >
+              or
+              <a target="blank" href="https://github.com/matthewp/haunted"
+                >Haunted for a hooks like experience</a
+              >
+              <iframe
+                width="100%"
+                height="350"
+                src="//jsfiddle.net/jagreehal/Lkcw80v2/embedded/html,result/"
+                allowfullscreen="allowfullscreen"
+                allowpaymentrequest
+                frameborder="0"
+              ></iframe>
+            </li>
+          </ul>
+        </section>
+        <section class="bg-yellow-600">
+          <h2>
+            I ♥️
+            <a target="_blank" href="https://github.com/ionic-team/stencil"
+              >Stencil</a
+            >
+          </h2>
+          <div class="flex justify-center">
+            <ul class="w-6/12 mr-18">
+              <li>Compiler not a framework</li>
+              <li>
+                Just add a script tag
+              </li>
+              
+              <li>Dynamic polyfills</li>
+              <li>Modern and legacy builds</li>
+              <li>Supports IE11</li>              
+              <li>Unit, visual and end-to-end tests</li>              
+            </ul>
+            <ul class="w-6/12">
+              <li>Tree shaking</li>
+              <li>Document generation</li>
+              <li>Typescript (TSX)</li>              
+              <li>Server Side Rendering (can be used with Next.js and Nuxt)</li>
+              <li>No lock in. Can output vanilla web components</li>
+            </ul>
+          </div>
+        </section>
+        <section class="bg-blue-600">
+          <h2>Integrating Stencil</h2>
+          <ul>
+            <li class="mb-2">
+              Script tag
+              <pre class="mt-2">
+<code>&lt;script
+  type="module" src="https://todo-mvc-stencil-web-components.surge.sh/todo-mvc-stencil-web-components/todo-mvc-stencil-web-components.esm.js"
+&gt;&lt;/script&gt;
+&lt;script&gt
+  nomodule="" src="https://todo-mvc-stencil-web-components.surge.sh/todo-mvc-stencil-web-components/todo-mvc-stencil-web-components.js"
+&gt;&lt;/script&gt;</code></pre>
+            </li>
+            <li>
+              npm module (<a
+                target="blank"
+                href="https://github.com/jagreehal/react-stencil-dx"
+                >Stencil React Example with Type Safety</a
+              >)
+              <img
+                class="w-3/4 m-auto mt-4"
+                src="images/stencil-react-typescript.gif"
+              />
+            </li>
+            <li>
+              Read more about
+              <a href="https://stenciljs.com/docs/overview"
+                >Framework Integration</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="bg-indigo-600">
+          <h2>This talk was supposed to be</h2>
+          <div class="flex">
+            <img class="w-5/12 mb-4 m-auto" src="images/todos-refactor.png" />
+            <div class="w-7/12 ml-6">
+              I refactored React & Vue versions of
+              <a
+                target="blank"
+                href="https://github.com/jagreehal/todo-mvc-refactor-stencil-web-components"
+                >TODO MVC</a
+              >
+              to use the
+              <span class="font-bold">SAME</span> web components
+            </div>
+          </div>
+          <ul>
+            <li>Create web component, write tests and Storybook story</li>
+            <li>Replace native component with web component</li>
+            <li>
+              Run E2E tests using
+              <a target="blank" href="https://www.cypress.io/">Cypress.io</a>
+              after each step
+            </li>
+            <li>TL;DR - state management still the same</li>
+          </ul>
+        </section>
+        <section class="bg-purple-600">
+          <h2>
+            <a
+              href="https://github.com/jagreehal/todo-mvc-refactor-stencil-web-components/blob/master/todo-mvc-stencil-web-components/src/components/todo-input/todo-input.tsx"
+              >Stencil Todo Input</a
+            >
+          </h2>
+          <pre><code style="max-height: none">
+import { Component, State, Event, EventEmitter, h } from &#x27;@stencil/core&#x27;;
+
+@Component({
+  tag: &#x27;todo-input&#x27;
+})
+export class TodoInput {
+  @Event({ eventName: &#x27;input-submit&#x27; }) inputSubmit: EventEmitter;
+  @State() value: string;
+
+  keyUp = e =&#x3E; {
+    if (e.keyCode === 13) {
+      this.inputSubmit.emit(this.value);
+      this.value = &#x27;&#x27;;
+    }
+  };
+
+  render() {
+    return (
+      &#x3C;input
+        class=&#x22;new-todo&#x22;
+        value={this.value}
+        type=&#x22;text&#x22;
+        autoFocus
+        placeholder=&#x22;What needs to be done?&#x22;
+        onInput={(ev: any) =&#x3E; (this.value = ev.target.value)}
+        onKeyUp={e =&#x3E; this.keyUp(e)}
+      /&#x3E;
+    );
+  }
+}</code></pre>
+        </section>
+        <section class="bg-red-600">
+          <h2>Used like this in React</h2>
+          <ul>
+            <li class="mb-2">
+              Before
+              <pre>
+            <code class="text-xs" style="max-height: none">const TodoInput = () =&#x3E; {
+  const [textInput, onInputChange] = useState(&#x27;&#x27;);
+  const { onSubmitTodo } = React.useContext(TodoStoreContext);
+  const handleInputEnterPress = e =&#x3E; {
+    if (e.key === &#x27;Enter&#x27;) {
+      onSubmitTodo(textInput);
+      onInputChange(&#x27;&#x27;);
+    }
+  };
+  return (
+    &#x3C;&#x3E;
+      &#x3C;input
+        onKeyPress={handleInputEnterPress}
+        className=&#x22;new-todo&#x22;
+        placeholder=&#x22;What needs to be done?&#x22;
+        autoFocus
+        value={textInput}
+        onChange={e =&#x3E; onInputChange(e.target.value)}
+      /&#x3E;
+    &#x3C;/&#x3E;
+  );
+};</code></pre>
+            </li>
+            <li class="mb-0">
+              After
+              <pre>
+                <code class="text-xs">const TodoInput = () =&#x3E; {
+  const { onSubmitTodo } = React.useContext(TodoStoreContext);
+
+  const [customElementProps, ref] = useCustomElement({
+    &#x27;input-submit&#x27;: onSubmitTodo
+  });
+  return &#x3C;todo-input autofocus {...customElementProps} ref={ref} /&#x3E;;
+};</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section class="bg-orange-600">
+          <h2>Used like this in Vue</h2>
+          <ul>
+            <li>
+              Before
+              <pre>
+               <code class="text-xs">
+&#x3C;input class=&#x22;new-todo&#x22;
+       autofocus
+       autocomplete=&#x22;off&#x22;
+       placeholder=&#x22;What needs to be done?&#x22;
+       v-model=&#x22;newTodo&#x22;
+       @keyup.enter=&#x22;addTodo&#x22; /&#x3E;</code></pre>
+            </li>
+            <li>
+              After
+              <pre>
+                <code class="javascript text-xs">
+// tell Vue not to panic we know what we're doing                
+Vue.config.ignoredElements = ['todo-input'];                
+
+&#x3C;todo-input @input-submit=&#x22;addTodo&#x22;/&#x3E;</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section class="bg-yellow-600">
+          <h2>🔥 Still blazingly fast! 🔥</h2>
+          <div class="mb-8">According to Lighthouse...</div>
+          <div class="flex">
+            <ul class="mr-40">
+              <li>
+                <h2 class="block mb-6 text-white">React</h2>
+                <div class="flex">
+                  <div class="mb-6 mr-10">
+                    <h4>
+                      <a
+                        class="text-3xl"
+                        target="blank"
+                        href="https://todo-stencil-components.surge.sh/react/index.html"
+                        >Before</a>
+                    </h4>
+                    <div class="text-green-600 font-bold text-5xl text-center">100</div>
+                  </div>
+                  <div>
+                    <h4>
+                      <a                                              
+                        class="text-3xl"
+                        target="blank"
+                        href="https://todo-stencil-components.surge.sh/react/index-stencil.html"
+                      >After</a>
+                    </h4>
+                    <div class="text-green-600 font-bold text-5xl text-center">100</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2 class="block mb-6 text-white">Vue</h2>
+                <div class="mt-6 flex">
+                  <div class="mb-6 mr-12">
+                    <h4>
+                      <a
+                        class="text-3xl"
+                        target="blank"
+                        href="https://todo-stencil-components.surge.sh/vue/index.html"
+                      >Before</a>
+                    </h4>
+                    <div class="text-green-600 font-bold text-5xl text-center">100</div>
+                  </div>
+                  <div>
+                    <h4>
+                      <a
+                        class="text-3xl" 
+                        target="blank"
+                        href="https://todo-stencil-components.surge.sh/vue/index-stencil.html"
+                      >After</a>
+                    </h4>
+                    <div class="text-green-600 font-bold text-5xl text-center">100</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <img class="w-7/12" src="images/page_speed.png" />
+          </div>
+        </section>        
+        <section class="bg-green-600">
+          <h2>Web component future</h2>
+          <ul>
+            <li>
+              Edge case or not there are issues with web components, just like
+              everything else e.g. still confusion around usage of React Hooks,
+              there will be around Vue Composition API
+            </li>
+            <li>
+              They are not, and never will be the silver bullet... but were they
+              ever supposed to be?
+            </li>
+            <li>
+              Standards are getting better but changes are required. This will take time and maybe a different approach?
+            </li>
+            <li>
+              The ship has sailed for libraries "to adopt web components as the
+              foundation to build the application component model upon"
+            </li>
+          </ul>
+        </section>
+        <section class="bg-blue-600">
+          <h2>Standards vs libraries aka pour one out for angular</h2>
+          <div class="flex justify-center">
+            <div class="w-5/12 mr-24">
+            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/364370506" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<blockquote class="text-base leading-normal">"Depending on who you ask, Web Components are either the best thing or the most irrelevant update to the web platform in the past few years. Why is that? Let&#039;s take a look at why there&#039;s such a range of opinions, and the cases where they&#039;re actually a good fit."</blockquote>
+            </div>
+            <div class="w-5/12">
+              <blockquote class="twitter-tweet m-0" data-partner="tweetdeck"><p lang="en" dir="ltr">To my dismay, I have to agree with you. Here&#39;s an ongoing conversation from my DMs. <a href="https://t.co/TcSwoXyQ4G">pic.twitter.com/TcSwoXyQ4G</a></p>&mdash; Tejas Kumar (@TejasKumar_) <a href="https://twitter.com/TejasKumar_/status/1194220984888446977?ref_src=twsrc%5Etfw">November 12, 2019</a></blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+        </section>
+        <section class="bg-indigo-600">
+          <h2>When should you use web components?</h2>
+          <ul>            
+            <li>Not when company is OK using a single library/framework</li>
+            <li>Maybe not when building apps that don't share components</li>            
+            <li>Maybe when building design systems</li>
+            <li>Yes when you want to use reusable components without the cost of a library/framework</li>
+            <li>Yes when you want to share components outside of your company</li>
+          </ul>          
+        </section>
+        <section class="bg-purple-600">
+          <h2>C’mon people!</h2>
+          <ul>
+            <li>Our conduct should be better, otherwise incidents like React Rally will happen again</li>
+            <li>
+              Have fun but stop liking and sharing inflammatory tweets by Farage, Trump et al. without
+              questioning and understanding.
+            </li>
+            <li>
+              Embrace diversity and respect. Competition is healthy and
+              necessary but keep the fight clean and constructive
+            </li>
+            <li>
+              Try to learn from others outside your echo chamber
+            </li>
+            <li>
+              Mental health within our industry is a big issue. You have no idea
+              what impact what you say will have on somebody
+            </li>
+          </ul>
+        </section>    
+        <section class="bg-red-600">
+          <h2>Thanks!</h2>
+          <ul>
+            <li>
+              Given up engaging with fan boys I have #brexit supporters
+            </li>
+            <li>'Tis the season of good will. Enjoy whatever you're using!</li>
+            <li class="mb-0">
+              Let the ***** fight it out
+              <div class="w-6/12 m-auto">
+                <img class="m-t1" src="images/framework-fight.gif" />
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        center: false,
+        history: true,
+        dependencies: [
+          {
+            src: "plugin/highlight/highlight.js",
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
