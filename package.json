@@ -1,0 +1,25 @@
+{
+  "name": "build-components-not-walls-ldn",
+  "version": "1.0.0",
+  "description": "Slides for my Build components not walls LDN talk",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
+    "start": "cross-env NODE_ENV=development concurrently \"postcss public/css/_theme.css -o public/css/theme.css --watch\"  \"live-server --port=3001 public\"",
+    "build": "cross-env NODE_ENV=production postcss public/css/_theme.css -o public/css/theme.css"
+  },
+  "author": "Jagvinder Singh Reehal",
+  "license": "MIT",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.3.0",
+    "autoprefixer": "^9.7.2",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "cssnano": "^4.1.10",
+    "gh-pages": "^2.1.1",
+    "live-server": "^1.2.1",
+    "postcss-cli": "^6.1.3",
+    "prettier": "^1.19.1",
+    "tailwindcss": "^1.1.3"
+  }
+}
