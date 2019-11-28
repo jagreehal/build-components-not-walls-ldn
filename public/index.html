@@ -170,6 +170,12 @@ customElements.define("todo-item", TodoItem);
                 href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
                 >HTML templates</a
               >
+                            <pre class="mt-4"><code class="javsacript"><template id="template-id">
+  <style>
+    p { color: green; }
+  </style>
+  <p>Mark up goes here</p>
+</template></code></pre>
             </li>
             <li>
               <a
@@ -177,9 +183,7 @@ customElements.define("todo-item", TodoItem);
                 href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM"
                 >Shadow DOM</a
               >
-            </li>
-            <li class="line-through">HTML imports</li>
-     
+            </li>     
           </ul>
         </section>
         <section class="bg-purple-600">
@@ -891,11 +895,7 @@ Vue.config.ignoredElements = ['todo-input'];
             </li>
             <li>
               Standards are getting better but changes are required. This will take time and maybe a different approach?
-            </li>
-            <li class="fragment">
-              The ship has sailed for libraries "to adopt web components as the
-              foundation to build the application component model upon"
-            </li>
+            </li> 
           </ul>
         </section>
         <section class="bg-blue-600">
